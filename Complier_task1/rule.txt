@@ -1,0 +1,27 @@
+#N:S A B Q D E F
+#T:a b
+#S:S
+S:
+	a A
+	b Q
+A:
+	a A
+	b B
+	b
+B:
+	b D
+	a Q
+Q:
+	a Q
+	b D
+	b
+D:
+	b B
+	a A
+E:
+	a B
+	b F
+F:
+	b D
+	a E
+	b
