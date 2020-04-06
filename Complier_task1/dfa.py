@@ -2,6 +2,7 @@ from Data import StateNode
 from Data import Production
 from Data import dfaNode
 
+
 class nfa:
     def __init__(self, prodlist):
         endNode = StateNode('endNode', True)
@@ -50,7 +51,7 @@ class dfa:
             for T in list(self.dfaTable)[i:]:
                 i += 1
                 self.move(nfaTable,self.dfaTable[T])
-            print('i: ' + str(i) + '\tii: ' + str(len(self.dfaTable)) + '\ttotNode: ' + str(dfaNode.sub))
+            #print('i: ' + str(i) + '\tii: ' + str(len(self.dfaTable)) + '\ttotNode: ' + str(dfaNode.sub))
 
     def closure1(self, nfaTable, Start):
         nstateslist = Start.copy()
@@ -96,10 +97,6 @@ class dfa:
             move_list = []
             for state in Tstate.list_nstates:
                 try:
-                    #move_list.append(state.ChangeFun[ch])
-                    #print(type(state))
-                    if type(state) is str:
-                        print(state)
                     for item in state.ChangeFun[ch]:
                         if nfaTable.tabledic[item] not in move_list:
                             move_list.append(nfaTable.tabledic[item])
@@ -109,8 +106,7 @@ class dfa:
                 self.closure(nfaTable, move_list, Tstate, ch)
 
     def prt(self):
-        file = open('out.txt',mode='w', encoding='utf-8')
-        '''
+        print('dfaTable:', end='\n')
         for item in self.dfaTable:
             print('state: ' + self.dfaTable[item].StateName, end = '\n')
             print('nstates:', end = '\n\t')
@@ -122,7 +118,8 @@ class dfa:
             print('isStart:' + str(self.dfaTable[item].isStart) + '\tisEnd:' + str(self.dfaTable[item].isEnd))
             print()
             print()
-        '''
+
+        file = open('out.txt',mode='w', encoding='utf-8')
         for item in self.dfaTable:
             file.write('state: ' + self.dfaTable[item].StateName + '\n')
             file.write('nstates:' + '\n\t')

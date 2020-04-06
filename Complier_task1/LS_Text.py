@@ -1,11 +1,13 @@
 import os
 from Data import Production
 
+#读取源代码文件
 def LoadSrc(text_path):
     with open(text_path, mode='r', encoding='utf-8') as file:
         lines = file.readlines()
         return lines
 
+#读取产生式，并转换成Production类型后返回一个production的列表
 def LoadRule(rule_path):
     with open(rule_path, mode='r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -24,7 +26,7 @@ def LoadRule(rule_path):
                 rules.append(str)
         #将得到的产生式生成production对象返回
         prodlist = []
-        print(len(rules))
+        #print(len(rules))
         for rule in rules:
             if rule[0] == '#':
                 if rule[1] == 'N':
@@ -39,8 +41,7 @@ def LoadRule(rule_path):
                 #prod.prt()
         return prodlist
 
-def Store(token_path, lines):
+def SaveToken(token_path, tokens):
     file = open(token_path, mode='w', encoding='utf-8')
-    for line in lines:
-        file.write(line)
-    file.close()
+    for token in tokens:
+        file.write('行号：' + str(token.col + 1) + '\t\t类别：' + str(token.category) + '\t\t内容：' + str(token.content) + '\n')
