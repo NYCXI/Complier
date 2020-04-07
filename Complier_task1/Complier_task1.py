@@ -42,7 +42,7 @@ if __name__ == '__main__':
     os.chdir('Complier_task1\\')
     #读取产生式文件
 
-    prodlist = ls.LoadRule('rule1.txt')
+    prodlist = ls.LoadRule('src\\rule1.txt')
 
     #构造nfa表
     nfaTable = nfa(prodlist)
@@ -53,9 +53,9 @@ if __name__ == '__main__':
     #dfaTable.prt()
 
     #根据dfa表将输入的源程序转换为token表
-    lines = ls.LoadSrc('src.txt')
+    lines = ls.LoadSrc('src\\src.txt')
     list_token = []
     for index in range(len(lines)):
         tokens = rcg(lines[index], index, dfaTable.dfaTable)
         list_token.extend(tokens)
-    ls.SaveToken('tokens.txt', list_token)
+    ls.SaveToken('res\\tokens.txt', list_token)
