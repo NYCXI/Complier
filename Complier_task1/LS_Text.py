@@ -42,6 +42,6 @@ def LoadRule(rule_path):
         return prodlist
 
 def SaveToken(token_path, tokens):
-    file = open(token_path, mode='w', encoding='utf-8')
-    for token in tokens:
-        file.write('行号：' + str(token.col + 1) + '\t\t类别：' + str(token.category) + '\t\t内容：' + str(token.content) + '\n')
+    with open(token_path, mode = 'w', encoding='utf-8') as file:
+        for token in tokens:
+            file.write('行号：' + str(token.col + 1) + '\t\t类别：' + str(token.category) + '\t\t内容：' + str(token.content) + '\n')
