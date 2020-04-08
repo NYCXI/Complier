@@ -44,4 +44,4 @@ def LoadRule(rule_path):
 def SaveToken(token_path, tokens):
     with open(token_path, mode = 'w', encoding='utf-8') as file:
         for token in tokens:
-            file.write('行号：' + str(token.col + 1) + '\t\t类别：' + str(token.category) + '\t\t内容：' + str(token.content) + '\n')
+            file.write('行号:' + str(token.col + 1) + '\t类别:' + str(token.category) + '\t内容:' + str(token.content) + '\n')
