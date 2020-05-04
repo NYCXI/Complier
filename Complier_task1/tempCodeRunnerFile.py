@@ -1,0 +1,1 @@
+os.chdir('Complier_task1\\')

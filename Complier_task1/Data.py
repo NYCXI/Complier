@@ -5,6 +5,7 @@ class Production:
     VT = []
     S = ''
     def __init__(self, str):
+        #右线性文法识别规则:l[0]->l[1]l[2]
         l = str.split(' ')
         self.Vnl = l[0]
         self.Vt = l[1]
@@ -101,7 +102,7 @@ class Category:
                     'for', 'goto', 'int', 'long', 'register', 'return',
                     'short', 'signed', 'sizeof', 'struct', 'switch', 'typedef',
                     'union', 'unsighed', 'void', 'include', 'enum', 'inline',
-                    'while', 'false', 'true', 'do', 'class',)
+                    'while', 'false', 'true', 'do', 'class','if')
     dict_category = {'关键字':tuple_category[0],
                     '标识符':tuple_category[1],
                     '常数':tuple_category[2],
