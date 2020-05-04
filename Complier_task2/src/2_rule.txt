@@ -1,0 +1,10 @@
+#N:S A
+#T:a b c d e
+#S:S
+S:
+	a A d
+	b A c
+	a e c
+	b e d
+A:
+	e
